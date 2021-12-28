@@ -16,8 +16,8 @@ class CreateUserPreferencesTable extends Migration
         Schema::create('user_preferences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->array('languages');
-            $table->array('categories');
+            $table->json('languages');
+            $table->json('categories');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

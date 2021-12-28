@@ -22,4 +22,20 @@ class Bid extends Model
         'status'
     ];
 
+    public function users(){
+        return $this->belongsToMany(User::class, 'user_bids');
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function language(){
+        return $this->belongsTo(Language::class, 'language_id');
+    }
+
+    public function region(){
+        return $this->belongsTo(Region::class, 'region_id');
+    }
+
 }

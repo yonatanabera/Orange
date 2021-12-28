@@ -17,8 +17,8 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->text('location');
             $table->text('building_and_office_number');
-            $table->array('emails');
-            $table->array('phones');
+            $table->json('emails');
+            $table->json('phones');
             $table->timestamps();
         });
     }

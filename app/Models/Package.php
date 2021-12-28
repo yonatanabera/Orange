@@ -15,4 +15,10 @@ class Package extends Model
         'duration',
         'description',
     ];
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'user_packages');
+    }
+
+    
 }

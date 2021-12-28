@@ -15,8 +15,8 @@ class CreateBidsTable extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('opening_date');
-            $table->timestamp('closing_date');
+            $table->timestamp('opening_date')->default(Date('y:m:d'));
+            $table->timestamp('closing_date')->default(Date('y:m:d', strtotime('+10 days')));
             $table->unsignedBigInteger('source_id');
             $table->foreign('source_id')->references('id')->on('sources')->onDelete('cascade');
             $table->integer('bid_document_price');
