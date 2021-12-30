@@ -27,6 +27,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile',
+        'status',
+        'subscription_plan_deadline',
+        'role',
+        'profile_photo_path'
     ];
 
     /**
@@ -58,4 +63,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function bids(){
+        return $this->belongsToMany(Bid::class, 'user_bids', 'user_id', 'bid_id');
+    }
+
+    public function packages(){
+        return $this->belongsToMany(Package::class, 'user_packages', 'user_id', 'package_id');
+    }
 }
