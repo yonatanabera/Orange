@@ -22,6 +22,10 @@ Route::get('/login', function () {
     return view('User.login');
 });
 
+Route::get('/freeTenders', function () {
+    return view('User.freeTenders');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
